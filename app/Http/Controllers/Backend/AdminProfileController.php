@@ -19,6 +19,7 @@ class AdminProfileController extends Controller
         $editData = Admin::find(1);
         return view("admin.admin_profile_edit", compact("editData"));
     }
+
     public function adminProfileStore(Request $request)
     {
         $data = Admin::find(1);
@@ -33,6 +34,10 @@ class AdminProfileController extends Controller
             $data["profile_photo_path"] = $filename;
         }
         $data->save();
-        return redirect()->route("admin.profile");
+        $notification = array(
+            "message" => "Profile Updated Successfully",
+            "alert-type" => "success",
+        );
+        return redirect()->route("admin.profile")->with($notification);
     }
 }
