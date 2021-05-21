@@ -5,9 +5,9 @@
                 <a class="nav-link" href="javascript:void(0)">FAQ</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Purchase Now</a>
+                <a class="nav-link" href="#">Website goes here</a>
             </li>
         </ul>
     </div>
-    &copy; 2020 <a href="#">Psd to Html Expert</a>. All Rights Reserved.
+    &copy; 2020 <a href="#">Retsan</a>. All Rights Reserved.
 </footer>
