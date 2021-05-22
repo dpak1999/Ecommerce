@@ -8,33 +8,14 @@
                         <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
                         <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
                         <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
-                        <li><a href="#"><i class="icon fa fa-lock"></i>Login</a></li>
+                        @auth
+                            <li><a href="{{ route('login') }}"><i class="icon fa fa-user"></i>User Profile</a></li>
+                        @else
+                            <li><a href="{{ route('login') }}"><i class="icon fa fa-lock"></i>Register/Login</a></li>
+                        @endauth
                     </ul>
                 </div>
                 <!-- /.cnt-account -->
-
-                <div class="cnt-block">
-                    <ul class="list-unstyled list-inline">
-                        <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown"
-                                data-toggle="dropdown"><span class="value">USD </span><b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">USD</a></li>
-                                <li><a href="#">INR</a></li>
-                                <li><a href="#">GBP</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown"
-                                data-toggle="dropdown"><span class="value">English </span><b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">English</a></li>
-                                <li><a href="#">French</a></li>
-                                <li><a href="#">German</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <!-- /.list-unstyled -->
-                </div>
-                <!-- /.cnt-cart -->
                 <div class="clearfix"></div>
             </div>
             <!-- /.header-top-inner -->
@@ -48,8 +29,8 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                     <!-- ============================================================= LOGO ============================================================= -->
-                    <div class="logo"> <a href="home.html"> <img src="{{ asset('frontend/images/logo.png') }}"
-                                alt="logo"> </a>
+                    <div class="logo"> <a href="{{ url('/') }}"> <img
+                                src="{{ asset('frontend/images/logo.png') }}" alt="logo"> </a>
                     </div>
                     <!-- /.logo -->
                     <!-- ============================================================= LOGO : END ============================================================= -->
