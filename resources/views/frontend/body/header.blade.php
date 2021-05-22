@@ -29,8 +29,10 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                     <!-- ============================================================= LOGO ============================================================= -->
-                    <div class="logo"> <a href="{{ url('/') }}"> <img
-                                src="{{ asset('frontend/images/logo.png') }}" alt="logo"> </a>
+                    <div class="mr-0 text-white"> <a href="{{ url('/') }}">
+                            {{-- <img src="{{ asset('frontend/images/logo.png') }}" alt="logo"> --}}
+                            RETSAN
+                        </a>
                     </div>
                     <!-- /.logo -->
                     <!-- ============================================================= LOGO : END ============================================================= -->
