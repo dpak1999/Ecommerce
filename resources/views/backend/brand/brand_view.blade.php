@@ -29,7 +29,8 @@
                                                         style="width: 70px;height: 40px;" alt="...">
                                                 </td>
                                                 <td>
-                                                    <a href="" class="btn btn-sm btn-info">Edit</a>
+                                                    <a href="{{ route('brand.edit', $item->id) }}"
+                                                        class="btn btn-sm btn-info">Edit</a>
                                                     <a href="" class="btn-sm btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
