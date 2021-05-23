@@ -9,9 +9,10 @@
                         src="{{ !empty($user->profile_photo_path) ? url('upload/user_images/' . $user->profile_photo_path) : url('upload/no_image.jpg') }}"
                         alt="..."><br><br>
                     <ul class="list-group list-group-flush">
-                        <a href="" class="btn btn-sm btn-block btn-primary">Home</a>
+                        <a href="{{ route('dashboard') }}" class="btn btn-sm btn-block btn-primary">Home</a>
                         <a href="{{ route('user.profile') }}" class="btn btn-sm btn-block btn-primary">Profile Update</a>
-                        <a href="" class="btn btn-sm btn-block btn-primary">Change Password</a>
+                        <a href="{{ route('change.password') }}" class="btn btn-sm btn-block btn-primary">Change
+                            Password</a>
                         <a href="{{ route('user.logout') }}" class="btn btn-sm btn-block btn-danger">Logout</a>
                     </ul>
                 </div>
