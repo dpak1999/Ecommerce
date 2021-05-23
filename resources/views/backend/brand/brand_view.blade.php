@@ -29,8 +29,8 @@
                                                         style="width: 70px;height: 40px;" alt="...">
                                                 </td>
                                                 <td>
-                                                    <a href="" class="btn btn-info">Edit</a>
-                                                    <a href="" class="btn btn-danger">Delete</a>
+                                                    <a href="" class="btn btn-sm btn-info">Edit</a>
+                                                    <a href="" class="btn-sm btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -52,25 +52,34 @@
                                 <div class="form-group">
                                     <h5>Brand Name(English)</h5>
                                     <div class="controls">
-                                        <input type="text" name="brand_name_en" class="form-control" required>
+                                        <input type="text" name="brand_name_en" class="form-control">
+                                        @error('brand_name_en')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <h5>Brand Name(Hindi)</h5>
                                     <div class="controls">
-                                        <input type="text" name="brand_name_hin" class="form-control" required>
+                                        <input type="text" name="brand_name_hin" class="form-control">
+                                        @error('brand_name_hin')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <h5>Brand Image</h5>
                                     <div class="controls">
-                                        <input type="file" name="brand_image" class="form-control" required>
+                                        <input type="file" name="brand_image" class="form-control">
+                                        @error('brand_image')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="text-xs-right">
-                                    <input type="submit" class="btn btn-rounded btn-primary my-5" value="Update">
+                                    <input type="submit" class="btn btn-rounded btn-primary my-5" value="Add">
                                 </div>
                             </form>
                         </div>
