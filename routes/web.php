@@ -32,3 +32,7 @@ Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function 
 })->name('dashboard');
 
 Route::get("/", [IndexController::class, "index"]);
+/* User logout */
+Route::get("/user/logout", [IndexController::class, "userLogout"])->name("user.logout");
+/* User profile edit */
+Route::get("/user/profile", [IndexController::class, "userProfile"])->name("user.profile");
