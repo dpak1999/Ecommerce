@@ -3,7 +3,7 @@
     <div class="container-full">
         <section class="content">
             <div class="row">
-                <div class="col-12">
+                <div class="col-xs-12 col-md-8">
                     <div class="box">
                         <div class="box-header with-border">
                             <h3 class="box-title">Brand List</h3>
@@ -37,6 +37,42 @@
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- add brand --}}
+                <div class="col-xs-12 col-md-4">
+                    <div class="box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Add Brand</h3>
+                        </div>
+                        <div class="box-body">
+                            <form method="POST" action="{{ route('brand.store') }}" enctype="multipart/form-data">
+                                @csrf
+                                <div class="form-group">
+                                    <h5>Brand Name(English)</h5>
+                                    <div class="controls">
+                                        <input type="text" name="brand_name_en" class="form-control" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5>Brand Name(Hindi)</h5>
+                                    <div class="controls">
+                                        <input type="text" name="brand_name_hin" class="form-control" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5>Brand Image</h5>
+                                    <div class="controls">
+                                        <input type="file" name="brand_image" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="text-xs-right">
+                                    <input type="submit" class="btn btn-rounded btn-primary my-5" value="Update">
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

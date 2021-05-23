@@ -32,6 +32,7 @@ Route::post("/update/change/password", [AdminProfileController::class, "updateCh
 // Admin Brand Routes
 Route::prefix("brand")->group(function () {
     Route::get("/view", [BrandController::class, "brandView"])->name("all.brand");
+    Route::get("/store", [BrandController::class, "brandStore"])->name("brand.store");
 });
 
 // User All routes

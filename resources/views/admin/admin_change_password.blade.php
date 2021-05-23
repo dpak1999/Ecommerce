@@ -43,13 +43,11 @@
                                     <input type="submit" class="btn btn-rounded btn-primary my-5" value="Update">
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-
 
 @endsection
