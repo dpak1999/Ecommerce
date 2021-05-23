@@ -29,9 +29,14 @@
                                                         style="width: 70px;height: 40px;" alt="...">
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('brand.edit', $item->id) }}"
-                                                        class="btn btn-sm btn-info">Edit</a>
-                                                    <a href="" class="btn-sm btn btn-danger">Delete</a>
+                                                    <a href="{{ route('brand.edit', $item->id) }}" class="btn btn-info"
+                                                        title="Edit Data">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </a>
+                                                    <a href="{{ route('brand.delete', $item->id) }}"
+                                                        class=" btn btn-danger" id="delete" title="Delete Data">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         @endforeach

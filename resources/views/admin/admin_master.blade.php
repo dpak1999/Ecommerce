@@ -59,6 +59,7 @@
     <!--  Admin App -->
     <script src=" {{ asset('backend/js/template.js') }} "></script>
     <script src=" {{ asset('backend/js/pages/dashboard.js') }} "></script>
+    <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js') }}"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js">
     </script>
 
@@ -80,6 +81,26 @@
             break;
             }
         @endif
+
+    </script>
+
+    <script>
+        $(document).on("click", "#delete", function(e) {
+            e.preventDefault();
+            var link = $(this).attr("href");
+            swal({
+                    title: "Are you sure you want to delete?",
+                    text: "Once Deleted, This cannot be undone!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location.href = link;
+                    }
+                });
+        });
 
     </script>
 
