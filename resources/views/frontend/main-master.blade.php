@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap-select.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome-v5.css') }}">
+
 
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
