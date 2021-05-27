@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,13 @@ Route::prefix("brand")->group(function () {
 // Admin Category Routes
 Route::prefix("category")->group(function () {
     Route::get("/view", [CategoryController::class, "categoryView"])->name("all.category");
+    Route::post("/store", [CategoryController::class, "categoryStore"])->name("category.store");
+    Route::get("/edit/{id}", [CategoryController::class, "categoryEdit"])->name("category.edit");
+    Route::post("/update", [CategoryController::class, "categoryUpdate"])->name("category.update");
+    Route::get("/delete/{id}", [CategoryController::class, "categoryDelete"])->name("category.delete");
+
+    // Admin Subcategory Routes
+    Route::get("/sub/view", [SubCategoryController::class, "subcategoryView"])->name("all.subcategory");
     Route::post("/store", [CategoryController::class, "categoryStore"])->name("category.store");
     Route::get("/edit/{id}", [CategoryController::class, "categoryEdit"])->name("category.edit");
     Route::post("/update", [CategoryController::class, "categoryUpdate"])->name("category.update");
