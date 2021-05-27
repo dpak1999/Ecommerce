@@ -22,15 +22,15 @@
                                     <tbody>
                                         @foreach ($subcategory as $item)
                                             <tr>
-                                                <td>{{ $item->category_id }}</td>
+                                                <td>{{ $item['category']['category_name_en'] }}</td>
                                                 <td>{{ $item->subcategory_name_en }}</td>
                                                 <td>{{ $item->subcategory_name_hin }}</td>
                                                 <td>
-                                                    <a href="{{ route('category.edit', $item->id) }}" class="btn btn-info"
-                                                        title="Edit Data">
+                                                    <a href="{{ route('subcategory.edit', $item->id) }}"
+                                                        class="btn btn-info" title="Edit Data">
                                                         <i class="fa fa-pencil"></i>
                                                     </a>
-                                                    <a href="{{ route('category.delete', $item->id) }}"
+                                                    <a href="{{ route('subcategory.delete', $item->id) }}"
                                                         class=" btn btn-danger" id="delete" title="Delete Data">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
@@ -50,27 +50,29 @@
                             <h3 class="box-title">Add Subcategory</h3>
                         </div>
                         <div class="box-body">
-                            <form method="POST" action="{{ route('category.store') }}">
+                            <form method="POST" action="{{ route('subcategory.store') }}">
                                 @csrf
                                 <div class="form-group">
                                     <h5>Category Select</h5>
                                     <div class="controls">
-                                        <select name="select" id="select" required class="form-control">
-                                            <option value="">Select Your City</option>
-                                            <option value="1">India</option>
-                                            <option value="2">USA</option>
-                                            <option value="3">UK</option>
-                                            <option value="4">Canada</option>
-                                            <option value="5">Dubai</option>
+                                        <select name="category_id" class="form-control">
+                                            <option value="" disabled selected>Select Category</option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->category_name_en }}
+                                                </option>
+                                            @endforeach
                                         </select>
+                                        @error('category_id')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <h5>Subcategory Name(English)</h5>
                                     <div class="controls">
-                                        <input type="text" name="category_name_en" class="form-control">
-                                        @error('category_name_en')
+                                        <input type="text" name="subcategory_name_en" class="form-control">
+                                        @error('subcategory_name_en')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -79,8 +81,8 @@
                                 <div class="form-group">
                                     <h5>Subcategory Name(Hindi)</h5>
                                     <div class="controls">
-                                        <input type="text" name="category_name_hin" class="form-control">
-                                        @error('category_name_hin')
+                                        <input type="text" name="subcategory_name_hin" class="form-control">
+                                        @error('subcategory_name_hin')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
