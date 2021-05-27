@@ -19,7 +19,6 @@ class CreateCategoriesTable extends Migration
             $table->string("category_name_hin");
             $table->string("category_slug_en");
             $table->string("category_slug_hin");
-            $table->string("category_icon");
             $table->timestamps();
         });
     }
