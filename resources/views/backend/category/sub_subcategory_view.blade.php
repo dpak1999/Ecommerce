@@ -52,7 +52,7 @@
                             <h3 class="box-title">Add Sub-Subcategory</h3>
                         </div>
                         <div class="box-body">
-                            <form method="POST" action="{{ route('subcategory.store') }}">
+                            <form method="POST" action="{{ route('subsubcategory.store') }}">
                                 @csrf
                                 <div class="form-group">
                                     <h5>Category Select</h5>
