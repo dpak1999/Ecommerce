@@ -90,4 +90,10 @@ class SubCategoryController extends Controller
         $subsubcategory = SubSubCategory::latest()->get();
         return view("backend.category.sub_subcategory_view", compact("subsubcategory", "categories"));
     }
+
+    public function getSubCategory($category_id)
+    {
+        $subcategory = SubCategory::where("category_id", $category_id)->orderBy("subcategory_name_en", "ASC")->get();
+        return json_encode($subcategory);
+    }
 }
