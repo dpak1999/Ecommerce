@@ -32,7 +32,7 @@
                                                         class="btn btn-info" title="Edit Data">
                                                         <i class="fa fa-pencil"></i>
                                                     </a>
-                                                    <a href="{{ route('subcategory.delete', $item->id) }}"
+                                                    <a href="{{ route('subsubcategory.delete', $item->id) }}"
                                                         class=" btn btn-danger" id="delete" title="Delete Data">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
