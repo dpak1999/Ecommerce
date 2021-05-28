@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\SubCategory;
+use App\Models\SubSubCategory;
 use Illuminate\Http\Request;
 
 class SubCategoryController extends Controller
@@ -79,5 +80,14 @@ class SubCategoryController extends Controller
         );
 
         return redirect()->back()->with($notification);
+    }
+
+    // -------------------Sub Subcategory---------------------
+
+    public function subsubcategoryView()
+    {
+        $categories = Category::orderBy("category_name_en", "ASC")->get();
+        $subsubcategory = SubSubCategory::latest()->get();
+        return view("backend.category.sub_subcategory_view", compact("subsubcategory", "categories"));
     }
 }
