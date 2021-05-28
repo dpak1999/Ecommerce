@@ -126,4 +126,32 @@ class SubCategoryController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+
+    public function subsubcategoryEdit($id)
+    {
+        $categories = Category::orderBy("category_name_en", "ASC")->get();
+        $subcategories = SubCategory::orderBy("subcategory_name_en", "ASC")->get();
+        $subsubcategories = SubSubCategory::findorFail($id);
+        return view("backend.category.sub_subcategory_edit", compact("subcategories", "categories", "subsubcategories"));
+    }
+
+    public function subsubcategoryUpdate(Request $request)
+    {
+        $subsubcategory_id = $request->id;
+
+        SubSubCategory::findOrFail($subsubcategory_id)->update([
+            "category_id" => $request->category_id,
+            "subcategory_id" => $request->subcategory_id,
+            "subsubcategory_name_en" => $request->subsubcategory_name_en,
+            "subsubcategory_name_hin" => $request->subsubcategory_name_hin,
+            "subsubcategory_slug_en" => strtolower(str_replace(" ", "-", $request->subsubcategory_name_en)),
+            "subsubcategory_slug_hin" => str_replace(" ", "-", $request->subsubcategory_name_hin),
+        ]);
+
+        $notification = array(
+            "message" => "Subcategory Updated Successfully",
+            "alert-type" => "info",
+        );
+        return redirect()->route("all.subsubcategory")->with($notification);
+    }
 }
