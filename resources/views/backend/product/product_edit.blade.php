@@ -104,26 +104,6 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <h5>Product code</h5>
-                                    <div class="controls">
-                                        <input type="text" name="product_code" class="form-control"
-                                            value="{{ $products->product_code }}" required>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <h5>Product qty</h5>
-                                    <div class="controls">
-                                        <input type="text" name="product_qty" class="form-control"
-                                            value="{{ $products->product_qty }}" required>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="form-group">
                                     <h5>Product tags (English)</h5>
                                     <div class="controls">
                                         <input type="text" name="product_tags_en" class="form-control" required
@@ -131,9 +111,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <h5>Product tags (Hindi)</h5>
@@ -153,7 +131,9 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
+                        <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <h5>Product size (Hindi)</h5>
@@ -163,9 +143,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <h5>Product color (English)</h5>
@@ -185,20 +163,32 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <h5>Product selling price</h5>
+                                    <h5>Product code</h5>
                                     <div class="controls">
-                                        <input required type="text" name="selling_price" class="form-control"
-                                            value="{{ $products->selling_price }}">
+                                        <input type="text" name="product_code" class="form-control"
+                                            value="{{ $products->product_code }}" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <h5>Product qty</h5>
+                                    <div class="controls">
+                                        <input type="text" name="product_qty" class="form-control"
+                                            value="{{ $products->product_qty }}" required>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <h5>Product discount price</h5>
                                     <div class="controls">
@@ -207,23 +197,14 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-md-4">
-                                {{-- <div class="form-group">
-                                    <h5>Product Thumbnail</h5>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <h5>Product selling price</h5>
                                     <div class="controls">
-                                        <input required type="file" name="product_thumbnail" class="form-control">
+                                        <input required type="text" name="selling_price" class="form-control"
+                                            value="{{ $products->selling_price }}">
                                     </div>
-                                </div> --}}
-                            </div>
-
-                            <div class="col-md-4">
-                                {{-- <div class="form-group">
-                                    <h5>Product Images</h5>
-                                    <div class="controls">
-                                        <input required type="file" name="multi_img[]" class="form-control" multiple>
-                                    </div>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
 
@@ -309,6 +290,102 @@
                 </div>
             </div>
         </section>
+
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box bt-3 border-info ">
+                        <div class="box-header">
+                            <h4 class="box-title">Product Thumbnail Image Update</h4>
+                        </div>
+                        <form method="POST" action="{{ route('update-product-thumbnail') }}"
+                            enctype="multipart/form-data" class="p-4">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $products->id }}">
+                            <input type="hidden" name="old_img" value="{{ $products->product_thumbnail }}">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <img src="{{ asset($products->product_thumbnail) }}" class="card-img-top">
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Change Image</label>
+                                                <input class="form-control" type="file" name="product_thumbnail"
+                                                    onchange="mainThumbUrl(this)">
+                                                <img src="" id="mainThumb" alt="">
+                                            </div>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-xs-right">
+                                <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update Image">
+                            </div>
+                            <br><br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box bt-3 border-info ">
+                        <div class="box-header">
+                            <h4 class="box-title">Product Multiple Image Update</h4>
+                        </div>
+                        <form method="POST" action="{{ route('update-product-image') }}" enctype="multipart/form-data"
+                            class="p-4">
+                            @csrf
+                            <div class="row">
+                                @foreach ($multiImgs as $img)
+                                    <div class="col-md-3">
+                                        <div class="card">
+                                            <img src="{{ asset($img->photo_name) }}" class="card-img-top">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <a href="" class="btn btn-sm btn-danger" id="delete"
+                                                        title="Delete Data">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </h5>
+                                                <p class="card-text">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">Change Image</label>
+                                                    <input class="form-control" type="file"
+                                                        name="multi_img[ {{ $img->id }} ]">
+                                                </div>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="text-xs-right">
+                                <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update Image">
+                            </div>
+                            <br><br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <script type="text/javascript">
+        function mainThumbUrl(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#mainThumb').attr('src', e.target.result).width(80).height(80);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+    </script>
 
 @endsection
