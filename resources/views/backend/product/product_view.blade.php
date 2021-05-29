@@ -27,7 +27,7 @@
                                         <td>{{ $item->product_name_en }}</td>
                                         <td>{{ $item->product_name_hin }}</td>
                                         <td>
-                                            <a href="{{ route('category.edit', $item->id) }}" class="btn btn-info"
+                                            <a href="{{ route('product.edit', $item->id) }}" class="btn btn-info"
                                                 title="Edit Data">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
