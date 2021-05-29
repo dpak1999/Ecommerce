@@ -47,7 +47,7 @@
                                     <div class="controls">
                                         <select name="subcategory_id" class="form-control" required>
                                             <option value="" disabled selected>Select Subcategory</option>
-                                        </select>r
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                                 <div class="form-group">
                                     <h5>Product qty</h5>
                                     <div class="controls">
-                                        <input type="text" name="product_qty" class="form-control" required>or
+                                        <input type="text" name="product_qty" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@
                                     <h5>Product tags (English)</h5>
                                     <div class="controls">
                                         <input type="text" name="product_tags_en" class="form-control" required
-                                            data-role="tagsinput" value="lorem,ipsum,amer">
+                                            data-role="tagsinput">
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@
                                     <h5>Product tags (Hindi)</h5>
                                     <div class="controls">
                                         <input required type="text" name="product_tags_hin" class="form-control"
-                                            data-role="tagsinput" value="lorem,ipsum,amer">
+                                            data-role="tagsinput">
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +130,7 @@
                                     <h5>Product size (English)</h5>
                                     <div class="controls">
                                         <input required type="text" name="product_size_en" class="form-control"
-                                            data-role="tagsinput" value="lorem,ipsum,amer">r
+                                            data-role="tagsinput">
                                     </div>
                                 </div>
                             </div>
@@ -140,7 +140,7 @@
                                     <h5>Product size (Hindi)</h5>
                                     <div class="controls">
                                         <input required type="text" name="product_size_hin" class="form-control"
-                                            data-role="tagsinput" value="lorem,ipsum,amer">
+                                            data-role="tagsinput">
                                     </div>
                                 </div>
                             </div>
@@ -152,7 +152,7 @@
                                     <h5>Product color (English)</h5>
                                     <div class="controls">
                                         <input required type="text" name="product_color_en" class="form-control"
-                                            data-role="tagsinput" value="lorem,ipsum,amer">
+                                            data-role="tagsinput">
                                     </div>
                                 </div>
                             </div>
@@ -162,7 +162,7 @@
                                     <h5>Product color (Hindi)</h5>
                                     <div class="controls">
                                         <input required type="text" name="product_color_hin" class="form-control"
-                                            data-role="tagsinput" value="lorem,ipsum,amer">
+                                            data-role="tagsinput">
                                     </div>
                                 </div>
                             </div>

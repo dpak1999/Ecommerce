@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\MultiImage;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -27,7 +28,7 @@ class ProductController extends Controller
         $save_url = 'upload/products/thumbnail/' . $name_gen;
 
 
-        Product::insert([
+        $product_id = Product::insertGetId([
             'brand_id' => $request->brand_id,
             'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
@@ -62,5 +63,25 @@ class ProductController extends Controller
             'status' => 1,
             'created_at' => Carbon::now(),
         ]);
+
+        $images = $request->file("multi_img");
+        foreach ($images as $img) {
+            $make_name = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
+            Image::make($img)->resize(917, 1000)->save('upload/products/multi-image/' . $make_name);
+            $save_new_url = 'upload/products/multi-image/' . $make_name;
+
+            MultiImage::insert([
+                'product_id' => $product_id,
+                'photo_name' => $save_new_url,
+                'created_at' => Carbon::now(),
+            ]);
+        }
+
+        $notification = array(
+            'message' => 'Product Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
 }
